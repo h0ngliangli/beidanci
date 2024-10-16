@@ -1,5 +1,13 @@
 <script setup lang="ts">
-function answer() {
+import { ref } from 'vue';
+
+const result = ref('');
+
+function check(event: KeyboardEvent) {
+  if (event.key == 'Enter') {
+    // checkAnswer();
+    result.value = '正确';
+  }
   const answer = document.getElementById('answer') as HTMLInputElement;
   console.log(answer.value);
 }
@@ -8,7 +16,8 @@ function answer() {
 <template>
   <main>
     <h2>讽刺; 挖苦</h2>
-    <input type="text" id="answer" @keydown="answer">
+    <input type="text" @keydown="check">
+    <span>{{ result }}</span>
   </main>
 </template>
 
@@ -22,9 +31,9 @@ main {
 }
 input {
   margin-top: 1rem;
-  padding: 0.5rem;
+  padding: 0.5rem 2rem;
   font-size: 1.5rem;
-  width: 50%;
+  width: 15rem;
   /* round the corners */
   border-radius: 2rem;
   border: 1px solid var(--color-shadow);
