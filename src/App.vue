@@ -3,79 +3,50 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <h1>背单词</h1>
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">中译英</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <section>
+    <main>
+      <RouterView />
+    </main>
+    <nav>
+      <RouterLink to="/review">Memorize</RouterLink>
+      <RouterLink to="/search">Search</RouterLink>
+      <RouterLink to="/about"> En > Zh </RouterLink>
+      <RouterLink to="/about"> Zh > En </RouterLink>
+    </nav>
+  </section>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+section {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  height: 95%;
 }
-
+main {
+  flex-grow: 1;
+}
 nav {
-  width: 100%;
-  font-size: 12px;
+  /* height: 2rem; */
+  flex-shrink: 0;
+  display: grid;
   text-align: center;
-  margin-top: 2rem;
+  grid-template-columns: repeat(4, 1fr);
 }
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
 nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+  margin-right: 1rem;
 }
-
-nav a:first-of-type {
-  border: 0;
+nav img {
+  height: 2rem;
 }
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.search {
+  
 }
 </style>

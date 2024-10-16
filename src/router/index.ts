@@ -1,7 +1,7 @@
 // vie-router通过npm安装
 import { createRouter, createWebHistory } from 'vue-router'
 // 在js文件中可以直接引入vue文件。他们会被vite编译成js文件。
-import HomeView from '../views/HomeView.vue'
+import ReView from '../views/ReView.vue'
 
 // 这里是路由配置。我们可以在这里配置路由，然后在 App.vue 中使用 <RouterView> 来显示路由组件。
 // 通过 createRouter 创建一个路由实例，然后通过 createWebHistory 创建一个路由历史实例。
@@ -20,9 +20,9 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: HomeView
+      path: '/review',
+      name: 'review',
+      component: ReView
     },
     {
       path: '/about',

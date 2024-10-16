@@ -1,16 +1,138 @@
-@import './base.css';
+:root {
+  --color-primary: #333;
+  --color-secondary: #666;
+  --color-tertiary: #999;
+  --color-quaternary: #ccc;
+  --color-quinary: #fff;
+  --color-bg: #f0f0f0;
+  --color-bg-secondary: #f8f8f8;
+  --color-bg-tertiary: #fafafa;
+  --color-bg-quaternary: #fcfcfc;
+  --color-bg-quinary: #fff;
+  --color-bg-hover: #e0e0e0;
+  --color-bg-hover-secondary: #e8e8e8;
+  --color-bg-hover-tertiary: #eaeaea;
+  --color-bg-hover-quaternary: #ececec;
+  --color-bg-hover-quinary: #f2f2f2;
+  --color-bg-active: #d4d4d4;
+  --color-bg-active-secondary: #dcdcdc;
+  --color-bg-active-tertiary: #dedede;
+  --color-bg-active-quaternary: #e0e0e0;
+  --color-bg-active-quinary: #e6e6e6;
+  --color-bg-disabled: #f0f0f0;
+  --color-bg-disabled-secondary: #f8f8f8;
+  --color-bg-disabled-tertiary: #fafafa;
+  --color-bg-disabled-quaternary: #fcfcfc;
+  --color-bg-disabled-quinary: #fff;
+  --color-bg-disabled-hover: #f0f0f0;
+  --color-bg-disabled-hover-secondary: #f8f8f8;
+  --color-bg-disabled-hover-tertiary: #fafafa;
+  --color-bg-disabled-hover-quaternary: #fcfcfc;
+  --color-bg-disabled-hover-quinary: #fff;
+  --color-bg-disabled-active: #f0f0f0;
+  --color-bg-disabled-active-secondary: #f8f8f8;
+  --color-bg-disabled-active-tertiary: #fafafa;
+  --color-bg-disabled-active-quaternary: #fcfcfc;
+  --color-bg-disabled-active-quinary: #fff;
+  --color-bg-disabled-disabled: #f0f0f0;
+  --color-bg-disabled-disabled-secondary: #f8f8f8;
+  --color-shadow: #ccc;
+  --color-header: #c0cbcc;
+  --nav-width: 240px;
+}
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.dark-mode {
+  --color-primary: #fff;
+  --color-secondary: #ccc;
+  --color-tertiary: #999;
+  --color-quaternary: #666;
+  --color-quinary: #333;
+  --color-bg: #333;
+  --color-bg-secondary: #2c2c2c;
+  --color-bg-tertiary: #292929;
+  --color-bg-quaternary: #272727;
+  --color-bg-quinary: #222;
+  --color-bg-hover: #4c4c4c;
+  --color-bg-hover-secondary: #444;
+  --color-bg-hover-tertiary: #424242;
+  --color-bg-hover-quaternary: #404040;
+  --color-bg-hover-quinary: #3a3a3a;
+  --color-bg-active: #1f1f1f;
+  --color-bg-active-secondary: #171717;
+  --color-bg-active-tertiary: #151515;
+  --color-bg-active-quaternary: #131313;
+  --color-bg-active-quinary: #0d0d0d;
+  --color-bg-disabled: #333;
+  --color-bg-disabled-secondary: #2c2c2c;
+  --color-bg-disabled-tertiary: #292929;
+  --color-bg-disabled-quaternary: #272727;
+  --color-bg-disabled-quinary: #222;
+  --color-bg-disabled-hover: #333;
+  --color-bg-disabled-hover-secondary: #2c2c2c;
+  --color-bg-disabled-hover-tertiary: #292929;
+  --color-bg-disabled-hover-quaternary: #272727;
+  --color-bg-disabled-hover-quinary: #222;
+  --color-bg-disabled-active: #333;
+  --color-bg-disabled-active-secondary: #2c2c2c;
+  --color-bg-disabled-active-tertiary: #292929;
+  --color-bg-disabled-active-quaternary: #272727;
+  --color-bg-disabled-active-quinary: #222;
+  --color-bg-disabled-disabled: #333;
+  --color-bg-disabled-disabled-secondary: #2c2c2c;
+  --color-shadow: #292929;
+  --color-header: #4a4e4f;
+}
+/* 全局重置样式，常用于确保所有 HTML 元素的样式在不同浏览器中表现一致，避免样式上的意外行为。 */
+*,
+*::before,
+*::after {
+  /* 元素的总宽度和高度包括 padding 和 border，但不再增加额外的空间。 */
+  box-sizing: border-box;
+  /* 去除默认的 margin，避免不同浏览器之间默认样式的差异。 */
+  margin: 0;
+  /* 将所有元素的 字体粗细 设置为 normal（即不加粗）。
+  有些元素（如 <strong> 或 <b>）的默认样式可能是加粗的，这里将它们重置为普通字体。 */
   font-weight: normal;
 }
 
-a,
-.green {
+body {
+  color: var(--color-primary);
+  background: var(--color-bg);
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  font-size: 18px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  /* 这里不能使用min-height, 否则子元素的 % height无法工作*/
+  height: 100vh; 
+  max-width: 1280px;
+  margin: 0 auto;
+  font-weight: normal;
+  border: 1px solid black;
+}
+
+a {
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
+  color: var(--color-primary);
   transition: 0.4s;
   padding: 3px;
 }
@@ -18,18 +140,5 @@ a,
 @media (hover: hover) {
   a:hover {
     background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
   }
 }
