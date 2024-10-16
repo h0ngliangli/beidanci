@@ -1,22 +1,21 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from 'vue'
+import { wordDoc } from '@/services/google-api'
 
-const result = ref('');
+const result = ref('')
 
-function check(event: KeyboardEvent) {
+async function check(event: KeyboardEvent) {
   if (event.key == 'Enter') {
     // checkAnswer();
-    result.value = '正确';
+    result.value = JSON.stringify(wordDoc.data())
   }
-  const answer = document.getElementById('answer') as HTMLInputElement;
-  console.log(answer.value);
 }
 </script>
 
 <template>
   <main>
     <h2>讽刺; 挖苦</h2>
-    <input type="text" @keydown="check">
+    <input type="text" @keydown="check" />
     <span>{{ result }}</span>
   </main>
 </template>

@@ -28,4 +28,4 @@ coverage
 *.sw?
 
 *.tsbuildinfo
-google-firestore-key.json
+src/services/firebase-config.ts
