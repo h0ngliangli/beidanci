@@ -1,7 +1,7 @@
 <!--
     SearchWord.vue组建会显示一个搜索框，用户可以在这里输入单词，然后点击搜索按钮，搜索结果会显示在下面。
 -->
-<script setup lang="ts">
+<script setup>
 
 </script>
 

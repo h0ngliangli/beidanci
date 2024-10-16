@@ -1,10 +1,10 @@
-<script setup lang="ts">
+<script setup>
 import { ref } from 'vue'
-import { wordDoc } from '@/services/google-api'
+import { wordDoc } from '@/services/firestore-api'
 
 const result = ref('')
 
-async function check(event: KeyboardEvent) {
+async function check(event) {
   if (event.key == 'Enter') {
     // checkAnswer();
     result.value = JSON.stringify(wordDoc.data())
