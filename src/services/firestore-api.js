@@ -1,4 +1,5 @@
 import { keys } from '@/keys'
+import { config } from './config'
 import { initializeApp } from 'firebase/app'
 import { getFirestore, collection, doc, getDoc } from 'firebase/firestore'
 /*
@@ -43,7 +44,7 @@ deleteDoc(maintaskRef)
 */
 
 export const vertexAI = getVertexAI(firebase)
-const model = getGenerativeModel(vertexAI, { model: 'gemini-1.5-flash' })
+const model = getGenerativeModel(vertexAI, config.model_config)
 console.log(`Vertex AI service initialized, model ${model.model}`)
 
 // test the model

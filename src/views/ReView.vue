@@ -1,13 +1,15 @@
 <script setup>
 import { ref } from 'vue'
-import { wordDoc } from '@/services/firestore-api'
+import { searchWord } from '@/services/google-ai-api'
 
 const result = ref('')
 
 async function check(event) {
   if (event.key == 'Enter') {
     // checkAnswer();
-    result.value = JSON.stringify(wordDoc.data())
+    // log the input
+    console.log(event.target.value)
+    result.value = await searchWord(event.target.value)
   }
 }
 </script>
