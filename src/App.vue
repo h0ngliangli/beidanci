@@ -1,8 +1,5 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import '@/services/firebase-init'
-
-
 </script>
 
 <template>
