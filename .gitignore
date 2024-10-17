@@ -29,3 +29,4 @@ coverage
 
 *.tsbuildinfo
 src/services/firebase-config.ts
+src/services/google-ai-api-key.js
