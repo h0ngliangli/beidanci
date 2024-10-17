@@ -3,46 +3,36 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <section>
-    <main>
+  <main>
+    <section>
       <RouterView />
-    </main>
+    </section>
     <nav>
       <RouterLink to="/review">Memorize</RouterLink>
       <RouterLink to="/search">Search</RouterLink>
       <RouterLink to="/about"> En > Zh </RouterLink>
       <RouterLink to="/about"> Zh > En </RouterLink>
     </nav>
-  </section>
+  </main>
 </template>
 
 <style scoped>
-section {
-  border: 1px solid black;
+main {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  height: 95%;
 }
-main {
+section {
   flex-grow: 1;
+  /* 这个section的内容有可能会超出边界，因此
+  需要设置overflow属性 */ 
+  overflow: auto;
 }
 nav {
-  /* height: 2rem; */
+  height: 2rem;
   flex-shrink: 0;
   display: grid;
   text-align: center;
   grid-template-columns: repeat(4, 1fr);
-}
-nav a {
-  margin-right: 1rem;
-}
-nav img {
-  height: 2rem;
-}
-.nav-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 </style>

@@ -101,7 +101,7 @@ body {
   transition:
     color 0.5s,
     background-color 0.5s;
-  line-height: 1.6;
+  /* line-height: 1.6; */
   font-family:
     Inter,
     -apple-system,
@@ -119,15 +119,15 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* 这里不能使用min-height, 否则子元素的 % height无法工作*/
+  height: 100vh;
 }
 
 #app {
-  /* 这里不能使用min-height, 否则子元素的 % height无法工作*/
-  height: 100vh; 
-  max-width: 1280px;
+  height: 100%;
+  max-width: 720px;
   margin: 0 auto;
   font-weight: normal;
-  border: 1px solid black;
 }
 
 a {
