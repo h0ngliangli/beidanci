@@ -12,6 +12,6 @@ export async function queryWord(word) {
 }
 
 const openai_api = {
-    queryWord: queryWord
+  queryWord
 }
 export default openai_api

@@ -1,8 +1,16 @@
 <script setup>
 import { ref } from 'vue'
-import { searchWord } from '@/services/google-ai-api'
+import { searchWord } from '@/services/google-ai-api.js'
+import firestore from '@/services/firestore-api.js'
 
 const result = ref('')
+firestore.getWord('bear').then((doc) => {
+  if (!doc) {
+    result.value = 'No word found'
+    return
+  }
+  result.value = JSON.stringify(doc, null, 2)
+})
 
 async function check(event) {
   if (event.key == 'Enter') {
@@ -19,9 +27,11 @@ async function check(event) {
 
 <template>
   <section>
-    <h2>讽刺; 挖苦</h2>
+    <h2>TODO word</h2>
     <input type="text" @keydown="check" />
-    <div><pre>{{ result }}</pre></div>
+    <div>
+      <pre>{{ result }}</pre>
+    </div>
   </section>
 </template>
 
